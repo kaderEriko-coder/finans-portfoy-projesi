@@ -4,7 +4,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from pypfopt import EfficientFrontier, HRPOpt, risk_models, expected_returns
-
+import scipy.cluster.hierarchy as sch
+if not hasattr(sch, "_LINKAGE_METHODS"):
+    sch._LINKAGE_METHODS = {"single": 0, "complete": 1, "average": 2, "weighted": 3, "centroid": 4, "median": 5, "ward": 6}
 st.set_page_config(page_title="Akıllı Portföy Paneli", page_icon="📊", layout="wide")
 st.title("📊 Akıllı Portföy Optimizasyonu & Risk Paneli")
 st.caption("Altın, Gümüş ve Bitcoin | Markowitz (1952) vs. Makine Öğrenmesi (HRP)")
